@@ -5,14 +5,14 @@ import java.util.ArrayList;
 
 public class TitlePrinter {
 
-    static private final ArrayList<String> title = new ArrayList<>();
+    static private final ArrayList<String> titleLines = new ArrayList<>();
 
     public void printTitle() throws IOException {
         this.printTitle(new BufferedWriter(new OutputStreamWriter(System.out)));
     }
 
     public void printTitle(Writer w) throws IOException {
-        for (String line : title) {
+        for (String line : titleLines) {
             w.write(line + "\n");
             w.flush();
         }
