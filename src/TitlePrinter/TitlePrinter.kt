@@ -1,29 +1,26 @@
-package TitlePrinter;
+package TitlePrinter
 
-import java.io.*;
-import java.util.ArrayList;
+import java.io.*
 
-public class TitlePrinter {
-
-    static private final ArrayList<String> titleLines = new ArrayList<>();
-
-    public void printTitle() throws IOException {
-        this.printTitle(new BufferedWriter(new OutputStreamWriter(System.out)));
-    }
-
-    public void printTitle(Writer w) throws IOException {
-        for (String line : titleLines) {
-            w.write(line + "\n");
-            w.flush();
+class TitlePrinter(f: File?) {
+    @JvmOverloads
+    @Throws(IOException::class)
+    fun printTitle(w: Writer = BufferedWriter(OutputStreamWriter(System.out))) {
+        for (line in titleLines) {
+            w.write(line + "\n")
+            w.flush()
         }
     }
 
-    public TitlePrinter(File f) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader(f));
-        String line;
-        while ((line = br.readLine()) != null) {
-            title.add(line);
-        }
+    companion object {
+        private val titleLines: ArrayList<String> = ArrayList()
     }
 
+    init {
+        val br = BufferedReader(FileReader(f))
+        var line: String?
+        while (br.readLine().also { line = it } != null) {
+            line?.let { titleLines.add(it) }
+        }
+    }
 }
