@@ -1,3 +1,3 @@
 # TitlePrinter
 
->An utility in java for reading files and priting it out.
+>An utility in kotlin for reading files and priting it out.
